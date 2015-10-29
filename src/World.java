@@ -1,6 +1,7 @@
 
 public class World {
 	private int[][][][][][] world = new int[10][10][10][10][10][10];
+	public int color = 0;
 	
 	public World(){
 		int counter = 0;
@@ -17,19 +18,67 @@ public class World {
 		    	}
 		    }
 		}
-	}
-	
-	public int getColor(int loc){
-		
-		return world[0][0][0][0][0][loc];
-	}
-	
-	public int position(int a, int b, int c, int d, int e, int f) {
-		return world[a][b][c][d][e][f];
+		//print6DArray(world);
 	}
 	
 	public int[][][][][][] toArray() {
 		return world;
 	}
+
+	public int getValue(int i, int n) {
+		int val = 0;
+		switch (i) {
+		case 0:
+			val = world[n][0][0][0][0][0];
+			val /= 100000;
+			break;
+		case 1:
+			val = world[0][n][0][0][0][0];
+			val /= 10000;
+			break;
+		case 2:
+			val = world[0][0][n][0][0][0];
+			val /= 1000;
+			break;
+		case 3:
+			val = world[0][0][0][n][0][0];
+			val /= 100;
+			break;
+		case 4:
+			val = world[0][0][0][0][n][0];
+			val /= 10;
+			break;
+		case 5:
+			val = world[0][0][0][0][0][n];
+			break;
+		}
+		 
+		return val;
+	}
 	
+	public int getColor(int[] arr) {
+		arr[5] = 0;
+		for (int i = 0; i < arr.length-1; i++) {
+			arr[5] += arr[i];
+		}
+		arr[5] %= 10;
+		return arr[5];
+	}
+	
+	private void print6DArray(int[][][][][][] arr) {
+		for (int j = 0; j < arr.length; j++) {
+		    for (int k = 0; k < arr.length; k++) {
+		    	for (int l = 0; l < arr.length; l++) {
+				    for (int m = 0; m < arr.length; m++) {
+				    	 for (int n = 0; n < arr.length; n++) {
+				    		 for (int o = 0; o < arr.length; o++) {
+				    			 System.out.print(arr[j][k][l][m][n][o]);
+				    		 }
+				    		 System.out.println("");
+				    	 }
+				    }
+		    	}
+		    }
+		}
+	}
 }
