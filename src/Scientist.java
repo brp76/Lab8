@@ -7,7 +7,6 @@ public class Scientist {
 		for (int i = 0; i < location.length; i++) {
 			location[i]=world[0][0][0][0][0][0];
 		}
-		
 	}
 	
 	public int[] move(int dimension, int numInts) {
@@ -22,6 +21,7 @@ public class Scientist {
 		// Move location
 		int i = dimension-1;
 		location[i] += numInts;
+		location[i] %= 10;
 		
 		return location;
 	}
@@ -32,5 +32,14 @@ public class Scientist {
 			System.out.print(location[i]+" ");
 		}
 		System.out.print(location[4]+"]");
+	}
+	
+	public int getColor() {
+		location[5] = 0;
+		for (int i = 0; i < location.length-1; i++) {
+			location[5] += location[i];
+		}
+		location[5] %= 10;
+		return location[5];
 	}
 }
