@@ -64,21 +64,4 @@ public class World {
 		arr[5] %= 10;
 		return arr[5];
 	}
-	
-	private void print6DArray(int[][][][][][] arr) {
-		for (int j = 0; j < arr.length; j++) {
-		    for (int k = 0; k < arr.length; k++) {
-		    	for (int l = 0; l < arr.length; l++) {
-				    for (int m = 0; m < arr.length; m++) {
-				    	 for (int n = 0; n < arr.length; n++) {
-				    		 for (int o = 0; o < arr.length; o++) {
-				    			 System.out.print(arr[j][k][l][m][n][o]);
-				    		 }
-				    		 System.out.println("");
-				    	 }
-				    }
-		    	}
-		    }
-		}
-	}
 }

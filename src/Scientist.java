@@ -1,43 +1,24 @@
 
 public class Scientist {
-	private int[][][][][][] world = new int[10][10][10][10][10][10];
 	private World w5 = new World();
 	private int location[] = {0,0,0,0,0,0};
 	
 	public Scientist(World w) {
-		world = w.toArray();
 		w5 = w;
-		for (int i = 0; i < location.length; i++) {
-			location[i]=world[0][0][0][0][0][0];
-		}
 	}
 	
-	public int[] move(int dimension, int numInts) {
-		
-		/*// Make sure number is between 0 and 9
+	public int[] move(int dimension, int numInts) {		
+		int i = dimension - 1;
+		numInts += location[i];
+		// Make sure number is between 0 and 9
 		numInts = numInts%10;
 		// Check negative
 		if(numInts<0) {
 			numInts = 10+numInts;
 		}
-		
-		// Move location
-		int i = dimension-1;
-		location[i] += numInts;
-		location[i] %= 10;
-		
-		return location;*/
-		
-		
-		
-		int i = dimension - 1;
-		numInts += location[i];
-		numInts = numInts%10;
-		if(numInts<0) {
-			numInts = 10+numInts;
-		}
 		System.out.println(numInts);
 		
+		// Move location
 		location[i] = w5.getValue(i,numInts);
 		int color = w5.getColor(location);
 		String colorS = convertColor(color);
