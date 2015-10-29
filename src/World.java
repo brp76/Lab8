@@ -31,4 +31,23 @@ public class World {
 	public int[][][][][][] toArray() {
 		return world;
 	}
+	
+	public void printWorld() {
+		
+		System.out.print("[ ");
+		for (int j=0; j < world.length; j++) {
+		    for (int k=0; k< world[j].length; k++) {
+		    	for (int l=0; l < world[j][k].length; l++) {
+		    		for (int m=0; m < world[j][k][l].length; m++) {
+		    			for (int n=0; n < world[j][k][l][m].length; n++) {
+		    				for (int o=0; o < world[j][k][l][m][n].length; o++) {
+		    					System.out.print(world[j][k][l][m][n][o]);
+		    				}
+		    			}
+		    		}
+		    	}
+		    }
+		}
+		
+	}
 }

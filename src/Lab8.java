@@ -12,7 +12,8 @@ public class Lab8 {
 		
 		World world = new World();
 		Scientist scientist = new Scientist(world);
-		System.out.println(world.getColor(3));
+		/*System.out.println(world.getColor(3));
+		world.printWorld();*/
 
 	}
 
