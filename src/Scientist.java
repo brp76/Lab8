@@ -7,19 +7,18 @@ public class Scientist {
 		w5 = w;
 	}
 	
-	public int[] move(int dimension, int numInts) {		
+	public int[] move(int dimension, int numUnits) {		
 		int i = dimension - 1;
-		numInts += location[i];
+		numUnits += location[i];
 		// Make sure number is between 0 and 9
-		numInts = numInts%10;
+		numUnits = numUnits%10;
 		// Check negative
-		if(numInts<0) {
-			numInts = 10+numInts;
+		if(numUnits<0) {
+			numUnits = 10+numUnits;
 		}
-		System.out.println(numInts);
 		
 		// Move location
-		location[i] = w5.getValue(i,numInts);
+		location[i] = w5.getValue(i,numUnits);
 		int color = w5.getColor(location);
 		String colorS = convertColor(color);
 		printLocation(colorS);

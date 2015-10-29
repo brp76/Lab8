@@ -18,7 +18,6 @@ public class World {
 		    	}
 		    }
 		}
-		//print6DArray(world);
 	}
 	
 	public int[][][][][][] toArray() {
