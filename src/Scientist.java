@@ -4,21 +4,33 @@ public class Scientist {
 	private int location[] = {0,0,0,0,0,0};
 	public Scientist(World w) {
 		world = w.toArray();
-		for (int i = 0; i < location.length-1; i++) {
+		for (int i = 0; i < location.length; i++) {
 			location[i]=world[0][0][0][0][0][0];
 		}
-		System.out.println("0: " + location[0]);
-		System.out.println("1: " + location[1]);
-		System.out.println("2: " + location[2]);
-		System.out.println("3: " + location[3]);
-		System.out.println("4: " + location[4]);
-		System.out.println("5: " + location[5]);
 		
 	}
 	
-	/*public int[] move(int dimension, int numInts) {
-		location=world[0][0][0][0][0][0];
-		int x[][][][][][] = world[1];
-		return x;
-	}*/
+	public int[] move(int dimension, int numInts) {
+		
+		// Make sure number is between 0 and 9
+		numInts = numInts%10;
+		// Check negative
+		if(numInts<0) {
+			numInts = 10+numInts;
+		}
+		
+		// Move location
+		int i = dimension-1;
+		location[i] += numInts;
+		
+		return location;
+	}
+	
+	public void printLocation() {
+		System.out.print("Location: [");
+		for (int i = 0; i < location.length-2; i++) {
+			System.out.print(location[i]+" ");
+		}
+		System.out.print(location[4]+"]");
+	}
 }
